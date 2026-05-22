@@ -1,45 +1,55 @@
 pipeline {
 
-    agent any 
+    agent any
 
     stages {
 
-        stage('Check docker') {
+        stage('Verify Environment') {
             steps {
+
+                sh 'pwd'
+                sh 'ls -la'
+
                 sh 'docker --version'
                 sh 'docker compose version'
             }
         }
 
-        stage('stop existing containers') {
+        stage('Stop Existing Containers') {
             steps {
                 sh 'docker compose down || true'
             }
         }
-        stage('Bulid Containers') {
+
+        stage('Build Containers') {
             steps {
                 sh 'docker compose build'
             }
         }
-        stage('start container') {
+
+        stage('Start Containers') {
             steps {
                 sh 'docker compose up -d'
             }
         }
-        stage('verify running containers') {
+
+        stage('Verify Running Containers') {
             steps {
                 sh 'docker ps'
             }
         }
-        
+
     }
-    
+
     post {
+
         success {
-            echo 'deployement successful'
+            echo 'deployment successful'
         }
+
         failure {
-            echo 'deployement failed'
+            echo 'deployment failed'
         }
+
     }
 }
