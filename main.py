@@ -17,6 +17,3 @@ def homepage (request:Request):
 
 
 
-@app.get("/test")
-def home(request: Request):
-    return {"url": str(request.url)}
