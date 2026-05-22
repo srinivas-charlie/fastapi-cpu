@@ -15,5 +15,10 @@ def homepage (request:Request):
         context={}
     )
 
-
-
+@app.get("/register")
+def register_page(request:Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="register.html",
+        context={}
+    )
