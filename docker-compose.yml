@@ -45,11 +45,7 @@ services:
 
 
 volumes:
-<<<<<<< HEAD
  - postgres:
-=======
-  - postgres:
->>>>>>> d0edd1eb977464ba53f8f7cb65870723782c34d8
 
 networks:
   fastapi-net:
