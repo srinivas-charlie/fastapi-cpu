@@ -31,7 +31,7 @@ services:
     container_name: fastapi_app
 
     ports:
-    - "8000:8000"
+     - "8000:8000"
 
     depends_on:   
       db:
@@ -45,8 +45,8 @@ services:
 
 
 volumes:
-postgres:
+  - postgres:
 
 networks:
-fastapi-net:
-driver: bridge
+  fastapi-net:
+  driver: bridge
