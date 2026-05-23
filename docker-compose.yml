@@ -45,7 +45,7 @@ services:
 
 
 volumes:
- - postgres:
+  postgres:
 
 networks:
   fastapi-net:
